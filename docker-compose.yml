@@ -1,0 +1,32 @@
+version: '3.8'
+
+services:
+  # --- BANCO RELACIONAL (FASE 1, 2, 3) ---
+  oracle-db:
+    image: gvenzl/oracle-xe:21-slim-faststart
+    container_name: includia-oracle
+    ports:
+      - "1521:1521"
+    environment:
+      - ORACLE_PASSWORD=oracle
+      - APP_USER=includia_user
+      - APP_USER_PASSWORD=includia_pass  # <--- AQUI ESTAVA O ERRO (Era APP_PASSWORD)
+    volumes:
+      - ./scripts:/container-entrypoint-initdb.d
+      - oracle_data:/opt/oracle/oradata
+
+  # --- BANCO NOSQL (FASE 4) ---
+  mongodb:
+    image: mongo:latest
+    container_name: includia-mongo
+    ports:
+      - "27017:27017"
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=admin
+      - MONGO_INITDB_ROOT_PASSWORD=secret
+    volumes:
+      - mongo_data:/data/db
+
+volumes:
+  oracle_data:
+  mongo_data:
