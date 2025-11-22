@@ -2,40 +2,49 @@
 
 > **Global Solution 2025 - O Futuro do Trabalho**
 >
-> *Recrutamento Inclusivo impulsionado por Dados e Inteligência Artificial.*
+> *Plataforma de Recrutamento Inclusivo impulsionada por Dados e Inteligência Artificial.*
+
+<div align="center">
 
 ![Oracle](https://img.shields.io/badge/Oracle-F80000?style=for-the-badge&logo=oracle&logoColor=white)
 ![MongoDB](https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white)
 ![PL/SQL](https://img.shields.io/badge/PL%2FSQL-Advanced-black?style=for-the-badge)
 ![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
 
+[☁️ Acessar Documentação PDF](docs/Relatorio_Tecnico_IncludIA.pdf) • [🔧 Scripts SQL](scripts/) • [🐳 Docker Compose](docker-compose.yml)
+
+</div>
+
 ---
 
 ## 📖 Sobre o Projeto
 
-O módulo **Database** do **Includ.IA** é a espinha dorsal da nossa plataforma de recrutamento sem viés. Ele foi projetado com uma arquitetura híbrida e robusta para garantir integridade relacional, segurança de dados e flexibilidade para integração com IA.
+O módulo **Database** do **Includ.IA** é a espinha dorsal da nossa plataforma de recrutamento sem viés. Ele foi projetado com uma arquitetura híbrida e robusta para garantir integridade relacional, segurança de dados e flexibilidade para integração com IA Generativa.
 
 ### 🎯 Destaques Técnicos
 * **Modelagem 3FN:** Estrutura relacional otimizada no Oracle Database 21c.
-* **PL/SQL Avançado:** Lógica de negócios encapsulada em Packages, com validações via REGEXP.
-* **Integração Manual JSON:** Função exclusiva para converter dados relacionais em JSON sem dependência de funções nativas, pronta para exportação.
-* **Auditoria Ativa:** Triggers que monitoram alterações sensíveis em tempo real.
-* **Persistência Poliglota:** Sincronização de dados entre Oracle (SQL) e MongoDB (NoSQL).
-* **Infraestrutura como Código:** Ambiente containerizado com Docker Compose.
+* **Lógica PL/SQL Avançada:** Packages, Procedures e Functions para regras de negócio complexas.
+* **Exportação JSON Manual:** Algoritmo proprietário para converter dados relacionais em documentos JSON sem dependência de funções nativas.
+* **Auditoria em Tempo Real:** Triggers que monitoram e registram alterações sensíveis.
+* **Persistência Híbrida:** Sincronização de dados transacionais (Oracle) para analíticos (MongoDB).
 
 ---
 
-## 🏗️ Arquitetura de Dados
+## 📐 Arquitetura e Modelagem
 
-A solução utiliza dois motores de banco de dados trabalhando em conjunto:
+A documentação completa da modelagem de dados está disponível para download no link abaixo.
 
-1.  **Oracle Database (Source of Truth):** Armazena dados estruturados, relacionamentos entre candidatos, vagas e empresas, e gerencia a lógica transacional.
-2.  **MongoDB (Read/Analytics):** Recebe os dados consolidados em formato JSON para consultas de alta performance e alimentação dos modelos de IA Generativa.
+📄 **[Download do Relatório Técnico (PDF)](docs/Relatorio_Tecnico_IncludIA.pdf)**
 
-### 📐 Diagrama Relacional (Modelo Físico)
-*(Certifique-se de que a imagem esteja na pasta `image` com este nome ou ajuste o link abaixo)*
+### 1. Modelo Lógico (Abstração)
+Representação das entidades de negócio e seus relacionamentos (Notação Pé de Galinha / IE).
 
-![Modelo Físico](image/Captura%20de%20tela%202025-11-22%20150840.png)
+![Modelo Lógico](image/modelo_logico.png)
+
+### 2. Modelo Físico (Implementação)
+Estrutura detalhada com tipos de dados Oracle, chaves estrangeiras e constraints.
+
+![Modelo Físico](image/modelo_fisico.png)
 
 ---
 
@@ -45,11 +54,10 @@ Todas as regras de negócio estão centralizadas no pacote `PKG_INCLUDIA`.
 
 | Objeto | Tipo | Descrição |
 | :--- | :--- | :--- |
-| `PRC_INSERIR_CANDIDATO` | Procedure | Realiza o cadastro seguro, validando duplicidade e formato de e-mail. |
-| `PRC_REGISTRAR_MATCH` | Procedure | Gerencia o "Swipe", calculando se houve Match mútuo entre Recrutador e Candidato. |
-| `FUN_VALIDAR_EMAIL` | Function | Validação robusta utilizando Expressões Regulares (`REGEXP_LIKE`). |
-| `FUN_GERAR_JSON` | Function | **Destaque:** Constrói um objeto JSON manualmente (concatenação de strings) a partir de dados relacionais complexos. |
-| `TRG_AUDIT_CANDIDATO` | Trigger | Registra automaticamente qualquer `INSERT`, `UPDATE` ou `DELETE` na tabela de auditoria. |
+| `PRC_INSERIR_CANDIDATO` | Procedure | Realiza o cadastro seguro, validando duplicidade e formato de e-mail via REGEXP. |
+| `PRC_REGISTRAR_MATCH` | Procedure | Gerencia o "Swipe", calculando automaticamente o Match mútuo entre Recrutador e Candidato. |
+| `FUN_GERAR_JSON` | Function | **Destaque:** Constrói um objeto JSON manualmente (concatenação de strings) para integração com NoSQL/IA. |
+| `TRG_AUDIT_CANDIDATO` | Trigger | Registra automaticamente logs de `INSERT`, `UPDATE` ou `DELETE` para conformidade e segurança. |
 
 ---
 
@@ -57,69 +65,60 @@ Todas as regras de negócio estão centralizadas no pacote `PKG_INCLUDIA`.
 
 ### Pré-requisitos
 * [Docker Desktop](https://www.docker.com/products/docker-desktop) instalado.
-* Cliente SQL (Oracle SQL Developer, VS Code Oracle Extension ou DBeaver).
-* Cliente MongoDB (MongoDB Compass ou VS Code Mongo Extension).
+* Cliente SQL (Oracle SQL Developer ou VS Code Oracle Extension).
+* Cliente NoSQL (MongoDB Compass ou VS Code Mongo Extension).
 
 ### 1. Subindo a Infraestrutura
-Utilizamos Docker Compose para orquestrar o Oracle XE e o MongoDB. Na raiz do projeto, execute:
+Utilize o Docker Compose para orquestrar os containers do Oracle XE e MongoDB.
 
 ```bash
 docker-compose up -d
 ````
 
-*Aguarde até que o log do Oracle exiba: `DATABASE IS READY TO USE!`.*
+> ⏳ **Aguarde:** A primeira inicialização do Oracle pode levar alguns minutos. Verifique os logs com `docker logs -f includia-oracle` até ver a mensagem `DATABASE IS READY TO USE!`.
 
-### 2\. Conectando ao Banco de Dados
+### 2\. Credenciais de Acesso
 
-Configure seu cliente Oracle com as credenciais abaixo:
+| Serviço | Host | Porta | Usuário | Senha | Database/SID |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| **Oracle** | `localhost` | `1521` | `SYSTEM` | `oracle` | `XE` |
+| **MongoDB** | `localhost` | `27017` | `admin` | `secret` | `includia_db` |
 
-  * **Hostname:** `localhost`
-  * **Port:** `1521`
-  * **User:** `SYSTEM`
-  * **Password:** `oracle`
-  * **SID / Service Name:** `XE`
+### 3\. Executando os Scripts (Sequência Automática)
 
-### 3\. Executando os Scripts (Ordem Obrigatória)
+Os scripts na pasta `/scripts` são mapeados para execução automática na criação do container, mas podem ser rodados manualmente na seguinte ordem:
 
-Os scripts estão numerados na pasta `/scripts` para facilitar a execução sequencial:
-
-1.  **`01_DDL_Criacao_Tabelas.sql`**: Cria as tabelas (`T_INC_...`), constraints e relacionamentos.
-2.  **`02_PLSQL_Regras_Negocio.sql`**: Compila o Package, Procedures, Functions e Triggers.
-3.  **`03_DML_Carga_Dados_Exportacao.sql`**:
-      * Popula o banco com dados de teste (Skills, Empresas).
-      * Testa a inserção de candidatos via Procedure.
-      * **Executa a função de geração de JSON** e exibe o resultado no console (DBMS Output).
-
-### 4\. Integração NoSQL (Fase Final)
-
-Após gerar o JSON no passo anterior, execute o script no **MongoDB**:
-
-  * Arquivo: **`scripts/04_NoSQL_Importacao.js`**
-  * Conexão Mongo: `mongodb://admin:secret@localhost:27017`
-
-Este script importará os documentos gerados e executará consultas de validação.
+1.  **`01_DDL_Criacao_Tabelas.sql`**: Criação das tabelas (`T_INC_...`) e constraints.
+2.  **`02_PLSQL_Regras_Negocio.sql`**: Compilação do Package e Triggers.
+3.  **`03_DML_Carga_Dados_Exportacao.sql`**: Popula o banco com dados fictícios e testa a geração de JSON.
+4.  **`04_NoSQL_Importacao.js`**: Script para importar o JSON gerado no Oracle para o MongoDB.
 
 -----
 
-## 📂 Estrutura de Pastas
+## 📂 Estrutura do Repositório
 
 ```text
 IncludIA-DataBase/
-├── docker-compose.yml          # Definição dos containers (Oracle + Mongo)
-├── README.md                   # Documentação do projeto
-├── image/                      # Evidências e diagramas
-│   └── ...                     # Imagens do Data Modeler
-└── scripts/                    # Código Fonte SQL/JS
-    ├── 01_DDL_Criacao_Tabelas.sql
-    ├── 02_PLSQL_Regras_Negocio.sql
-    ├── 03_DML_Carga_Dados_Exportacao.sql
-    └── 04_NoSQL_Importacao.js
+├── docs/                       # Documentação Técnica (PDF)
+├── docker-compose.yml          # Orquestração de containers
+├── image/                      # Diagramas Lógico e Físico
+├── scripts/                    # Código Fonte SQL e JS
+│   ├── 01_DDL_Criacao_Tabelas.sql
+│   ├── 02_PLSQL_Regras_Negocio.sql
+│   ├── 03_DML_Carga_Dados_Exportacao.sql
+│   └── 04_NoSQL_Importacao.js
+└── README.md                   # Este arquivo
 ```
 
 -----
 
 ## 👨‍💻 Autor
 
-Projeto desenvolvido para a Global Solution 2025 - FIAP.
+Projeto desenvolvido para a **Global Solution 2025 - FIAP**.
 
   * **Luiz Eduardo Da Silva Pinto** - [RM555213]
+
+-----
+
+*"Tecnologia com propósito para um futuro do trabalho mais justo."*
+
