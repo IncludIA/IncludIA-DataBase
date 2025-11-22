@@ -39,12 +39,12 @@ A documentação completa da modelagem de dados está disponível para download 
 ### 1. Modelo Lógico (Abstração)
 Representação das entidades de negócio e seus relacionamentos (Notação Pé de Galinha / IE).
 
-![Modelo Lógico](image/modelo_logico.png)
+![Modelo Lógico](image/Captura%20de%20tela%202025-11-22%20150858.png)
 
 ### 2. Modelo Físico (Implementação)
 Estrutura detalhada com tipos de dados Oracle, chaves estrangeiras e constraints.
 
-![Modelo Físico](image/modelo_fisico.png)
+![Modelo Físico](image/Captura%20de%20tela%202025-11-22%20150840.png)
 
 ---
 
