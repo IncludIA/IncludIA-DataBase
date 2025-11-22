@@ -11,7 +11,9 @@
 ![PL/SQL](https://img.shields.io/badge/PL%2FSQL-Advanced-black?style=for-the-badge)
 ![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
 
-[☁️ Acessar Documentação PDF](docs/Relatorio_Tecnico_IncludIA.pdf) • [🔧 Scripts SQL](scripts/) • [🐳 Docker Compose](docker-compose.yml)
+<a href="docs/Relatorio_Tecnico_IncludIA.pdf?raw=true">
+  <img src="https://img.shields.io/badge/📄_Download_Relatório_Técnico_(PDF)-B31B1B?style=for-the-badge&logo=adobe-acrobat-reader&logoColor=white" alt="Baixar PDF">
+</a>
 
 </div>
 
@@ -32,19 +34,16 @@ O módulo **Database** do **Includ.IA** é a espinha dorsal da nossa plataforma 
 
 ## 📐 Arquitetura e Modelagem
 
-A documentação completa da modelagem de dados está disponível para download no link abaixo.
-
-📄 **[Download do Relatório Técnico (PDF)](docs/Relatorio_Tecnico_IncludIA.pdf)**
 
 ### 1. Modelo Lógico (Abstração)
 Representação das entidades de negócio e seus relacionamentos (Notação Pé de Galinha / IE).
 
-![Modelo Lógico](image/Captura%20de%20tela%202025-11-22%20150858.png)
+![Modelo Lógico](image/modelo_logico.png)
 
 ### 2. Modelo Físico (Implementação)
 Estrutura detalhada com tipos de dados Oracle, chaves estrangeiras e constraints.
 
-![Modelo Físico](image/Captura%20de%20tela%202025-11-22%20150840.png)
+![Modelo Físico](image/modelo_fisico.png)
 
 ---
 
