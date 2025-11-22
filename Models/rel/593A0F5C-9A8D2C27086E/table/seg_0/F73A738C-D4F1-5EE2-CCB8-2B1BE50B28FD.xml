@@ -1,0 +1,82 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="F73A738C-D4F1-5EE2-CCB8-2B1BE50B28FD" name="T_INC_SKILL">
+<sourceDDLFile>Modelagem_Relacional.sql</sourceDDLFile>
+<createdBy>admin</createdBy>
+<createdTime>2025-11-22 18:02:59 UTC</createdTime>
+<ownerDesignName>Models</ownerDesignName>
+<importedID>F1A73EC1-EB63-A0F6-9DCB-589009A5AE08</importedID>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ID_SKILL" id="7FEDF993-185D-CD8D-CACC-FDF39FC5E963">
+<sourceDDLFile>Modelagem_Relacional.sql</sourceDDLFile>
+<createdBy>admin</createdBy>
+<createdTime>2025-11-22 18:02:59 UTC</createdTime>
+<ownerDesignName>Models</ownerDesignName>
+<importedID>2A4AD6C0-2A5B-3B58-5CF8-66AA624CC65B</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>9518A505-C574-0B0C-F09C-863ACF2F4432</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="NOME" id="24F7450E-A7D1-7E76-2CA4-86011CDC178A">
+<sourceDDLFile>Modelagem_Relacional.sql</sourceDDLFile>
+<createdBy>admin</createdBy>
+<createdTime>2025-11-22 18:02:59 UTC</createdTime>
+<ownerDesignName>Models</ownerDesignName>
+<importedID>92C9C05E-2D8F-E11C-CFCB-E9AF2C918D11</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>AFA9876B-2806-6EDB-1C5E-11460AD27CF6</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="TIPO_SKILL" id="C65159C6-FC41-57EB-C5DF-4302B4ACA89B">
+<sourceDDLFile>Modelagem_Relacional.sql</sourceDDLFile>
+<createdBy>admin</createdBy>
+<createdTime>2025-11-22 18:02:59 UTC</createdTime>
+<ownerDesignName>Models</ownerDesignName>
+<importedID>621C98E9-844B-E31F-7C4A-79701901686D</importedID>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>7D74E8A2-EBE6-5BF5-4860-3B0ADB9CBA29</domain>
+<listOfValues>
+<valueDef value="HARD_SKILL" description=""/>
+<valueDef value="SOFT_SKILL" description=""/>
+</listOfValues>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="F4388599-BB5A-99F1-0056-4D62E0947DC9" name="T_INC_SKILL_PK">
+<sourceDDLFile>Modelagem_Relacional.sql</sourceDDLFile>
+<createdBy>admin</createdBy>
+<createdTime>2025-11-22 18:02:59 UTC</createdTime>
+<ownerDesignName>Models</ownerDesignName>
+<importedID>4282A286-9EAA-17A8-C846-AE6DBF1E6E54</importedID>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="7FEDF993-185D-CD8D-CACC-FDF39FC5E963"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="A33A0D72-AF31-A1C2-B471-02906872597F" name="INDEX_1v3">
+<sourceDDLFile>Modelagem_Relacional.sql</sourceDDLFile>
+<createdBy>admin</createdBy>
+<createdTime>2025-11-22 18:02:59 UTC</createdTime>
+<ownerDesignName>Models</ownerDesignName>
+<importedID>DE0A6C92-13A0-2C18-672D-9A7596361E16</importedID>
+<indexState>Unique Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="24F7450E-A7D1-7E76-2CA4-86011CDC178A"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

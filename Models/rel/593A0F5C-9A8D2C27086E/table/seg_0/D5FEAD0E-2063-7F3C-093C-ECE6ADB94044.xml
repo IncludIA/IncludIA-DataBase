@@ -1,0 +1,79 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="D5FEAD0E-2063-7F3C-093C-ECE6ADB94044" name="T_INC_VAGA_SKILL">
+<sourceDDLFile>Modelagem_Relacional.sql</sourceDDLFile>
+<createdBy>admin</createdBy>
+<createdTime>2025-11-22 18:02:59 UTC</createdTime>
+<ownerDesignName>Models</ownerDesignName>
+<importedID>F0A40CD4-E191-B519-2235-E562AF81431B</importedID>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ID_VAGA" id="5964EF2E-07DB-68D9-F786-BD65F68D3CA2">
+<sourceDDLFile>Modelagem_Relacional.sql</sourceDDLFile>
+<createdBy>admin</createdBy>
+<createdTime>2025-11-22 18:02:59 UTC</createdTime>
+<ownerDesignName>Models</ownerDesignName>
+<importedID>68A01F8B-21D3-5B9B-29E8-90CFE7EB8E62</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>9518A505-C574-0B0C-F09C-863ACF2F4432</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="9C3CFAB5-F064-2EAC-85B1-F09488F0EED4" referredColumn="A209ADCB-F036-2CC8-1A42-71C701ED8ED9"/>
+</associations>
+</Column>
+<Column name="ID_SKILL" id="B4AE0721-0C24-D76F-BED4-098030DE7764">
+<sourceDDLFile>Modelagem_Relacional.sql</sourceDDLFile>
+<createdBy>admin</createdBy>
+<createdTime>2025-11-22 18:02:59 UTC</createdTime>
+<ownerDesignName>Models</ownerDesignName>
+<importedID>04AEF537-F416-096C-BFB2-C9BD0937C0AB</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>9518A505-C574-0B0C-F09C-863ACF2F4432</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="F7F0B2A8-04B1-9F49-50C0-8D9EB8E7DA26" referredColumn="7FEDF993-185D-CD8D-CACC-FDF39FC5E963"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="8C619FEE-2E87-77F9-284F-6F6B231429F4" name="T_INC_VAGA_SKILL_PK">
+<sourceDDLFile>Modelagem_Relacional.sql</sourceDDLFile>
+<createdBy>admin</createdBy>
+<createdTime>2025-11-22 18:02:59 UTC</createdTime>
+<ownerDesignName>Models</ownerDesignName>
+<importedID>6B5347BC-A4BC-678C-C1E7-5032D4835E13</importedID>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="5964EF2E-07DB-68D9-F786-BD65F68D3CA2"/>
+<colUsage columnID="B4AE0721-0C24-D76F-BED4-098030DE7764"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="CE147B1D-01A0-B6D2-A614-8C498287531D" name="FK_VS_SKILL">
+<createdBy>admin</createdBy>
+<createdTime>2025-11-22 18:02:59 UTC</createdTime>
+<ownerDesignName>Models</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="B4AE0721-0C24-D76F-BED4-098030DE7764"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="BC1C5617-5F28-398A-09F0-BFCC3990E0CB" name="FK_VS_VAGA">
+<createdBy>admin</createdBy>
+<createdTime>2025-11-22 18:02:59 UTC</createdTime>
+<ownerDesignName>Models</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="5964EF2E-07DB-68D9-F786-BD65F68D3CA2"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

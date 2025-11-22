@@ -1,0 +1,18 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="B011E1E1-F3A9-C0D6-D334-BD002F6008AF" containerWithKeyObject="B2D87350-B43C-7B79-793C-1D79C83F7518" localFKIndex="35A857ED-7A20-54FC-89B2-FE90DEB1D9E2" name="FK_MATCH_CANDIDATO">
+<sourceDDLFile>Modelagem_Relacional.sql</sourceDDLFile>
+<createdBy>admin</createdBy>
+<createdTime>2025-11-22 18:02:59 UTC</createdTime>
+<ownerDesignName>Models</ownerDesignName>
+<importedID>C9C11AA6-1643-D629-D838-8F6B73DFD6D4</importedID>
+<referredTableLongName>T_INC_CANDIDATO</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>6F28C1A4-77E1-A763-79C1-B60ACE711B84</referredTableID>
+<keyObject>0E47E4D2-2A97-9B3A-5F0E-1B3E4CE7AAF2</keyObject>
+<referredKeyID>0E47E4D2-2A97-9B3A-5F0E-1B3E4CE7AAF2</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>ID_CANDIDATO</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

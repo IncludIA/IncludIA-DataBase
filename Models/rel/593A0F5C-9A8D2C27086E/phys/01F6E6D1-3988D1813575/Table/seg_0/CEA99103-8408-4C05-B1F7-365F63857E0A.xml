@@ -1,0 +1,82 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev20c class="oracle.dbtools.crest.model.design.storage.oracle.v20c.TableProxyOraclev20c" name="T_INC_EMPRESA" directorySegmentName="seg_0" id="CEA99103-8408-4C05-B1F7-365F63857E0A">
+<createdBy>admin</createdBy>
+<createdTime>2025-11-22 18:02:59 UTC</createdTime>
+<ownerDesignName>Models</ownerDesignName>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="NOME_FANTASIA" id="09AD13D2-2A11-238D-74FE-3DBEB124B22E">
+<createdBy>admin</createdBy>
+<createdTime>2025-11-22 18:02:59 UTC</createdTime>
+<ownerDesignName>Models</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="IS_ATIVE" id="3E793BB2-12DE-39AD-E80E-5199C672CF60">
+<createdBy>admin</createdBy>
+<createdTime>2025-11-22 18:02:59 UTC</createdTime>
+<ownerDesignName>Models</ownerDesignName>
+<defaultValue>1</defaultValue>
+</ColumnProxy>
+<ColumnProxy name="IS_VERIFICADO" id="460D0F56-F7A8-28C8-FFDE-3DF26E2CBC10">
+<createdBy>admin</createdBy>
+<createdTime>2025-11-22 18:02:59 UTC</createdTime>
+<ownerDesignName>Models</ownerDesignName>
+<defaultValue>1</defaultValue>
+</ColumnProxy>
+<ColumnProxy name="DESCRICAO" id="4836C732-3200-2337-B153-8E24EF9309E1">
+<createdBy>admin</createdBy>
+<createdTime>2025-11-22 18:02:59 UTC</createdTime>
+<ownerDesignName>Models</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="NOME_OFICIAL" id="66D7DB51-8E7B-596F-B1FA-F76A5B2DE432">
+<createdBy>admin</createdBy>
+<createdTime>2025-11-22 18:02:59 UTC</createdTime>
+<ownerDesignName>Models</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="FOTO_CAPA_URL" id="6ADA9C0D-1D74-D8A6-858B-A1489E19B876">
+<createdBy>admin</createdBy>
+<createdTime>2025-11-22 18:02:59 UTC</createdTime>
+<ownerDesignName>Models</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="FOTO_LOGO" id="A2FC2220-DA67-87F7-D9A8-8C3FFB5B653E">
+<createdBy>admin</createdBy>
+<createdTime>2025-11-22 18:02:59 UTC</createdTime>
+<ownerDesignName>Models</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="ID_EMPRESA" id="A40CD775-AB85-6F1D-E3FE-D49CBBF5981B">
+<createdBy>admin</createdBy>
+<createdTime>2025-11-22 18:02:59 UTC</createdTime>
+<ownerDesignName>Models</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="CNPJ" id="D199900E-53C1-389D-446B-DC3C2E48A42C">
+<createdBy>admin</createdBy>
+<createdTime>2025-11-22 18:02:59 UTC</createdTime>
+<ownerDesignName>Models</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="LOCALIZACAO" id="E3D1C5D6-ADD0-238C-117B-A3B71FF626AC">
+<createdBy>admin</createdBy>
+<createdTime>2025-11-22 18:02:59 UTC</createdTime>
+<ownerDesignName>Models</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="T_INC_EMPRESA_PK" id="7E4D224A-BC8D-DA88-B26C-E19B57D8401B">
+<createdBy>admin</createdBy>
+<createdTime>2025-11-22 18:02:59 UTC</createdTime>
+<ownerDesignName>Models</ownerDesignName>
+<indexSort>SORTED</indexSort>
+</PrimaryKey>
+</primaryKeys>
+<uniqueKeys>
+<UniqueKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.UniqueOraclev10g" name="INDEX_1" id="1B899D7D-A74E-7792-3947-8649B2CF202B">
+<createdBy>admin</createdBy>
+<createdTime>2025-11-22 18:02:59 UTC</createdTime>
+<ownerDesignName>Models</ownerDesignName>
+<nameChanged>true</nameChanged>
+<indexSort>SORTED</indexSort>
+</UniqueKey>
+</uniqueKeys>
+</TableProxyOraclev20c>

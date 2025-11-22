@@ -1,0 +1,21 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="FK_MATCH_CANDIDATO" directorySegmentName="seg_0" id="5DDB639D-48CB-5CEA-4DB9-2A5FEE520EBA">
+<createdBy>admin</createdBy>
+<createdTime>2025-11-22 18:05:26 UTC</createdTime>
+<generatorID>B011E1E1-F3A9-C0D6-D334-BD002F6008AF</generatorID>
+<ownerDesignName>Models</ownerDesignName>
+<engineerTo>
+<item key="E0F644F1-DF0D-6A90-82AA-F5D9A7682E65" value="true"/>
+<item key="593A0F5C-7EAB-6D9E-AEC6-9A8D2C27086E" value="true"/>
+</engineerTo>
+<sourcePk>8404E034-5A60-B7A6-0B91-2CCB013856E1</sourcePk>
+<identifying>false</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>432A2AF3-7E68-6398-A58C-7FB2919115FC</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>4D52CF05-04B8-FB44-E631-43708D45612F</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

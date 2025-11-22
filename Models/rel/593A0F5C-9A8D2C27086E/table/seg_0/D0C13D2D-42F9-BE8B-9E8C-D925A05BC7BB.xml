@@ -1,0 +1,109 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="D0C13D2D-42F9-BE8B-9E8C-D925A05BC7BB" name="T_INC_LOG_AUDITORIA">
+<sourceDDLFile>Modelagem_Relacional.sql</sourceDDLFile>
+<createdBy>admin</createdBy>
+<createdTime>2025-11-22 18:02:59 UTC</createdTime>
+<ownerDesignName>Models</ownerDesignName>
+<importedID>38F4C10D-9A03-8029-4193-3C2623CD5FF2</importedID>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ID_LOG" id="063A2ACF-DEF6-987E-11F6-4AAE340824DD">
+<sourceDDLFile>Modelagem_Relacional.sql</sourceDDLFile>
+<createdBy>admin</createdBy>
+<createdTime>2025-11-22 18:02:59 UTC</createdTime>
+<ownerDesignName>Models</ownerDesignName>
+<importedID>4D3F1B5A-E835-8710-29C2-2551FD9BC1EE</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>7E11D483-FFDF-1B65-E54B-9E32C8CD7FA5</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementColumn>true</autoIncrementColumn>
+<identityColumn>true</identityColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<autoIncrementOrder>false</autoIncrementOrder>
+</Column>
+<Column name="NOME_TABELA" id="FAA890E9-7DEA-8D9E-ECA2-E62A7F8788AC">
+<sourceDDLFile>Modelagem_Relacional.sql</sourceDDLFile>
+<createdBy>admin</createdBy>
+<createdTime>2025-11-22 18:02:59 UTC</createdTime>
+<ownerDesignName>Models</ownerDesignName>
+<importedID>028C8F6C-ABF0-39E0-982D-FC1F84F57861</importedID>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>C48359AA-90DA-1986-295F-46C6C6BF6782</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="OPERACAO" id="B07DA7F6-61B3-F2A3-7B23-C3C76B583153">
+<sourceDDLFile>Modelagem_Relacional.sql</sourceDDLFile>
+<createdBy>admin</createdBy>
+<createdTime>2025-11-22 18:02:59 UTC</createdTime>
+<ownerDesignName>Models</ownerDesignName>
+<importedID>9FE2AB80-CA1A-1857-F655-ECB157DD9DA4</importedID>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>7D74E8A2-EBE6-5BF5-4860-3B0ADB9CBA29</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="USUARIO_DB" id="D1A6B71F-DB18-355F-1861-9E91E24BB7D4">
+<sourceDDLFile>Modelagem_Relacional.sql</sourceDDLFile>
+<createdBy>admin</createdBy>
+<createdTime>2025-11-22 18:02:59 UTC</createdTime>
+<ownerDesignName>Models</ownerDesignName>
+<importedID>1C7E0E28-7257-0578-037F-160A689D35BF</importedID>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>C48359AA-90DA-1986-295F-46C6C6BF6782</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DATA_HORA" id="84CB3CD0-B9AC-B6D6-8D97-78EC60512715">
+<sourceDDLFile>Modelagem_Relacional.sql</sourceDDLFile>
+<createdBy>admin</createdBy>
+<createdTime>2025-11-22 18:02:59 UTC</createdTime>
+<ownerDesignName>Models</ownerDesignName>
+<importedID>6F713360-BCF6-E403-02B0-FC2507141C4C</importedID>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT015</logicalDatatype>
+<domain>A902DE77-AE5B-2705-74C1-5BDB629A0926</domain>
+<defaultValue>SYSTIMESTAMP</defaultValue>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DADOS_ANTIGOS" id="ED0F7533-055C-2BA7-B958-E0DD852A8A5D">
+<sourceDDLFile>Modelagem_Relacional.sql</sourceDDLFile>
+<createdBy>admin</createdBy>
+<createdTime>2025-11-22 18:02:59 UTC</createdTime>
+<ownerDesignName>Models</ownerDesignName>
+<importedID>9FC383D8-0A22-8212-5533-32E394699D00</importedID>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT028</logicalDatatype>
+<domain>6889EC8A-45A1-4D29-6BBD-4C5C65DC4869</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="81752A2C-F3D6-35FC-5517-ADB2565F3AEE" name="T_INC_LOG_AUDITORIA_PK">
+<sourceDDLFile>Modelagem_Relacional.sql</sourceDDLFile>
+<createdBy>admin</createdBy>
+<createdTime>2025-11-22 18:02:59 UTC</createdTime>
+<ownerDesignName>Models</ownerDesignName>
+<importedID>72891A38-5E18-DD09-7E11-4D9D9825DB2E</importedID>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="063A2ACF-DEF6-987E-11F6-4AAE340824DD"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

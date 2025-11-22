@@ -1,0 +1,79 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="9D23FB70-57DA-E81A-D420-C4E90D804B35" name="T_INC_CANDIDATO_SKILL">
+<sourceDDLFile>Modelagem_Relacional.sql</sourceDDLFile>
+<createdBy>admin</createdBy>
+<createdTime>2025-11-22 18:02:59 UTC</createdTime>
+<ownerDesignName>Models</ownerDesignName>
+<importedID>C06124F3-AD79-8A3B-843D-C08505E29307</importedID>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ID_CANDIDATO" id="513F0682-9A81-F7C7-EFDF-4B975D34868C">
+<sourceDDLFile>Modelagem_Relacional.sql</sourceDDLFile>
+<createdBy>admin</createdBy>
+<createdTime>2025-11-22 18:02:59 UTC</createdTime>
+<ownerDesignName>Models</ownerDesignName>
+<importedID>5239EF6D-51A2-373D-C532-B3D2D52EA645</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>9518A505-C574-0B0C-F09C-863ACF2F4432</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="812F8D65-8129-A988-F29D-08FFBA13A528" referredColumn="2660CFC9-CAC6-5C8D-9295-67554698AE1A"/>
+</associations>
+</Column>
+<Column name="ID_SKILL" id="D0C18FAC-278C-9D8C-6D18-6B00EB039744">
+<sourceDDLFile>Modelagem_Relacional.sql</sourceDDLFile>
+<createdBy>admin</createdBy>
+<createdTime>2025-11-22 18:02:59 UTC</createdTime>
+<ownerDesignName>Models</ownerDesignName>
+<importedID>3E6151D5-A417-9521-5D38-0EFC6A9630FC</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>9518A505-C574-0B0C-F09C-863ACF2F4432</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="9639D486-762B-55C2-6A58-D2C0C95FFC2C" referredColumn="7FEDF993-185D-CD8D-CACC-FDF39FC5E963"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="197B5019-2225-0BF8-BF9A-4112A7F36764" name="T_INC_CANDIDATO_SKILL_PK">
+<sourceDDLFile>Modelagem_Relacional.sql</sourceDDLFile>
+<createdBy>admin</createdBy>
+<createdTime>2025-11-22 18:02:59 UTC</createdTime>
+<ownerDesignName>Models</ownerDesignName>
+<importedID>1C157E13-FE2D-4CCB-2B32-3EAF14DBB892</importedID>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="513F0682-9A81-F7C7-EFDF-4B975D34868C"/>
+<colUsage columnID="D0C18FAC-278C-9D8C-6D18-6B00EB039744"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="75AD185C-B1FF-4D22-E0E0-23224B82F3B1" name="FK_CS_CANDIDATO">
+<createdBy>admin</createdBy>
+<createdTime>2025-11-22 18:02:59 UTC</createdTime>
+<ownerDesignName>Models</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="513F0682-9A81-F7C7-EFDF-4B975D34868C"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="105F4CA9-494C-BCCF-FE12-13B9AA3604E7" name="FK_CS_SKILL">
+<createdBy>admin</createdBy>
+<createdTime>2025-11-22 18:02:59 UTC</createdTime>
+<ownerDesignName>Models</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="D0C18FAC-278C-9D8C-6D18-6B00EB039744"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

@@ -1,0 +1,18 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="4464D7AF-CB17-12F7-D999-838BA6434C61" containerWithKeyObject="4CE48BCA-7EF2-0282-CAA4-365D300F062A" localFKIndex="4933EB49-938A-4B14-181E-8C2798C0ADDA" name="FK_VAGA_RECRUTADOR">
+<sourceDDLFile>Modelagem_Relacional.sql</sourceDDLFile>
+<createdBy>admin</createdBy>
+<createdTime>2025-11-22 18:02:59 UTC</createdTime>
+<ownerDesignName>Models</ownerDesignName>
+<importedID>610CB58E-5C4A-61BD-7F61-B9EC9B50A1F6</importedID>
+<referredTableLongName>T_INC_RECRUTADOR</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>6B43F16E-2963-FE30-F94F-DFCEA1BBEF02</referredTableID>
+<keyObject>48CD43E3-C39C-00E2-C883-65774E3F29C0</keyObject>
+<referredKeyID>48CD43E3-C39C-00E2-C883-65774E3F29C0</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>ID_RECRUTADOR</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

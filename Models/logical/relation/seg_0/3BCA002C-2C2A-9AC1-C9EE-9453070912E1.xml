@@ -1,0 +1,21 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="FK_VS_SKILL" directorySegmentName="seg_0" id="3BCA002C-2C2A-9AC1-C9EE-9453070912E1">
+<createdBy>admin</createdBy>
+<createdTime>2025-11-22 18:05:26 UTC</createdTime>
+<generatorID>F7F0B2A8-04B1-9F49-50C0-8D9EB8E7DA26</generatorID>
+<ownerDesignName>Models</ownerDesignName>
+<engineerTo>
+<item key="E0F644F1-DF0D-6A90-82AA-F5D9A7682E65" value="true"/>
+<item key="593A0F5C-7EAB-6D9E-AEC6-9A8D2C27086E" value="true"/>
+</engineerTo>
+<sourcePk>E4E82450-2F61-A5B0-8143-E320028F0412</sourcePk>
+<identifying>true</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>2C2DD3EA-BDEC-4B8D-7C7D-7565FD806E63</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>931098DF-E149-344F-B719-480D96BAAAF8</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

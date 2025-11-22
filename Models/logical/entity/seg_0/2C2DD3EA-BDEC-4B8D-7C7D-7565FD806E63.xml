@@ -1,0 +1,98 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="2C2DD3EA-BDEC-4B8D-7C7D-7565FD806E63" name="T INC SKILL">
+<createdBy>admin</createdBy>
+<createdTime>2025-11-22 18:05:26 UTC</createdTime>
+<generatorID>F73A738C-D4F1-5EE2-CCB8-2B1BE50B28FD</generatorID>
+<ownerDesignName>Models</ownerDesignName>
+<engineerTo>
+<item key="E0F644F1-DF0D-6A90-82AA-F5D9A7682E65" value="true"/>
+<item key="593A0F5C-7EAB-6D9E-AEC6-9A8D2C27086E" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="ID SKILL" id="A33502DD-16E8-AE6B-1061-256184BD1B43">
+<createdBy>admin</createdBy>
+<createdTime>2025-11-22 18:05:26 UTC</createdTime>
+<generatorID>7FEDF993-185D-CD8D-CACC-FDF39FC5E963</generatorID>
+<ownerDesignName>Models</ownerDesignName>
+<engineerTo>
+<item key="E0F644F1-DF0D-6A90-82AA-F5D9A7682E65" value="true"/>
+<item key="593A0F5C-7EAB-6D9E-AEC6-9A8D2C27086E" value="true"/>
+</engineerTo>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>9518A505-C574-0B0C-F09C-863ACF2F4432</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="NOME" id="B9FCE263-469C-68D3-2546-3404B8D5CAEB">
+<createdBy>admin</createdBy>
+<createdTime>2025-11-22 18:05:26 UTC</createdTime>
+<generatorID>24F7450E-A7D1-7E76-2CA4-86011CDC178A</generatorID>
+<ownerDesignName>Models</ownerDesignName>
+<engineerTo>
+<item key="E0F644F1-DF0D-6A90-82AA-F5D9A7682E65" value="true"/>
+<item key="593A0F5C-7EAB-6D9E-AEC6-9A8D2C27086E" value="true"/>
+</engineerTo>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>AFA9876B-2806-6EDB-1C5E-11460AD27CF6</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="TIPO SKILL" id="10C027CD-122F-DA86-7A82-BAE45DCCE179">
+<createdBy>admin</createdBy>
+<createdTime>2025-11-22 18:05:26 UTC</createdTime>
+<generatorID>C65159C6-FC41-57EB-C5DF-4302B4ACA89B</generatorID>
+<ownerDesignName>Models</ownerDesignName>
+<engineerTo>
+<item key="E0F644F1-DF0D-6A90-82AA-F5D9A7682E65" value="true"/>
+<item key="593A0F5C-7EAB-6D9E-AEC6-9A8D2C27086E" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>7D74E8A2-EBE6-5BF5-4860-3B0ADB9CBA29</domain>
+<listOfValues>
+<valueDef value="HARD_SKILL" description=""/>
+<valueDef value="SOFT_SKILL" description=""/>
+</listOfValues>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="E4E82450-2F61-A5B0-8143-E320028F0412" name="T INC SKILL PK">
+<createdBy>admin</createdBy>
+<createdTime>2025-11-22 18:05:26 UTC</createdTime>
+<generatorID>F4388599-BB5A-99F1-0056-4D62E0947DC9</generatorID>
+<ownerDesignName>Models</ownerDesignName>
+<engineerTo>
+<item key="E0F644F1-DF0D-6A90-82AA-F5D9A7682E65" value="true"/>
+<item key="593A0F5C-7EAB-6D9E-AEC6-9A8D2C27086E" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>A33502DD-16E8-AE6B-1061-256184BD1B43</attributeRef>
+</usedAttributes>
+</identifier>
+<identifier id="4BE0370B-8A23-A89C-41EE-D1A10DF45BE8" name="INDEX 1v3">
+<createdBy>admin</createdBy>
+<createdTime>2025-11-22 18:05:26 UTC</createdTime>
+<generatorID>A33A0D72-AF31-A1C2-B471-02906872597F</generatorID>
+<ownerDesignName>Models</ownerDesignName>
+<engineerTo>
+<item key="E0F644F1-DF0D-6A90-82AA-F5D9A7682E65" value="true"/>
+<item key="593A0F5C-7EAB-6D9E-AEC6-9A8D2C27086E" value="true"/>
+</engineerTo>
+<usedAttributes>
+<attributeRef>B9FCE263-469C-68D3-2546-3404B8D5CAEB</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

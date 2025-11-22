@@ -1,0 +1,110 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev20c class="oracle.dbtools.crest.model.design.storage.oracle.v20c.TableProxyOraclev20c" name="T_INC_VAGA" directorySegmentName="seg_0" id="4CE48BCA-7EF2-0282-CAA4-365D300F062A">
+<createdBy>admin</createdBy>
+<createdTime>2025-11-22 18:02:59 UTC</createdTime>
+<ownerDesignName>Models</ownerDesignName>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="BENEFICIOS" id="15D673B5-67D7-9986-1D5D-01B54987BA12">
+<createdBy>admin</createdBy>
+<createdTime>2025-11-22 18:02:59 UTC</createdTime>
+<ownerDesignName>Models</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="MODELO_TRABALHO" id="1F309E9F-7337-5F96-EA86-825AFFBFDA58">
+<createdBy>admin</createdBy>
+<createdTime>2025-11-22 18:02:59 UTC</createdTime>
+<ownerDesignName>Models</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="TITULO" id="2690BB88-E751-969D-FAF3-5F5AACF5B419">
+<createdBy>admin</createdBy>
+<createdTime>2025-11-22 18:02:59 UTC</createdTime>
+<ownerDesignName>Models</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="IS_ATIVA" id="3BCA6104-2E62-6F63-E9C6-521CAF5AE59A">
+<createdBy>admin</createdBy>
+<createdTime>2025-11-22 18:02:59 UTC</createdTime>
+<ownerDesignName>Models</ownerDesignName>
+<defaultValue>1</defaultValue>
+</ColumnProxy>
+<ColumnProxy name="SALARIO_MAX" id="51A1DEBA-EAA5-CA89-EADB-9C44A4B9DEEC">
+<createdBy>admin</createdBy>
+<createdTime>2025-11-22 18:02:59 UTC</createdTime>
+<ownerDesignName>Models</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="TIPO_VAGA" id="64F55F7F-A183-94E2-4FC2-D870F52DF185">
+<createdBy>admin</createdBy>
+<createdTime>2025-11-22 18:02:59 UTC</createdTime>
+<ownerDesignName>Models</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="LOCALIZACAO" id="75D9C7EE-D0A3-0F8B-E4F8-38667A781FF1">
+<createdBy>admin</createdBy>
+<createdTime>2025-11-22 18:02:59 UTC</createdTime>
+<ownerDesignName>Models</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="EXPERIENCIA_REQ" id="7ECA3330-B0A5-D561-AC9D-DA7F139CA07A">
+<createdBy>admin</createdBy>
+<createdTime>2025-11-22 18:02:59 UTC</createdTime>
+<ownerDesignName>Models</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="DESCRICAO_INCLUSIVA" id="9DE86CEF-7876-DC0E-6C16-7DEBD9BB82A1">
+<createdBy>admin</createdBy>
+<createdTime>2025-11-22 18:02:59 UTC</createdTime>
+<ownerDesignName>Models</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="ID_VAGA" id="A209ADCB-F036-2CC8-1A42-71C701ED8ED9">
+<createdBy>admin</createdBy>
+<createdTime>2025-11-22 18:02:59 UTC</createdTime>
+<ownerDesignName>Models</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="ID_EMPRESA" id="AD7AF00F-B65F-D0BF-22DB-6DB8667E672F">
+<createdBy>admin</createdBy>
+<createdTime>2025-11-22 18:02:59 UTC</createdTime>
+<ownerDesignName>Models</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="CREATED_AT" id="C8E94F26-6D24-8EAF-B25F-AF5C8BE44121">
+<createdBy>admin</createdBy>
+<createdTime>2025-11-22 18:02:59 UTC</createdTime>
+<ownerDesignName>Models</ownerDesignName>
+<defaultValue>SYSTIMESTAMP</defaultValue>
+</ColumnProxy>
+<ColumnProxy name="DESCRICAO_ORIGINAL" id="D68958B3-C80D-EE5E-05A2-1FE63F394CD4">
+<createdBy>admin</createdBy>
+<createdTime>2025-11-22 18:02:59 UTC</createdTime>
+<ownerDesignName>Models</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="SALARIO_MIN" id="F3458D37-3618-E9B0-D55C-8251AF58F129">
+<createdBy>admin</createdBy>
+<createdTime>2025-11-22 18:02:59 UTC</createdTime>
+<ownerDesignName>Models</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="ID_RECRUTADOR" id="F4DBFB09-804A-0AB9-10A0-10E142B73BD4">
+<createdBy>admin</createdBy>
+<createdTime>2025-11-22 18:02:59 UTC</createdTime>
+<ownerDesignName>Models</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<foreignKeys>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="FK_VAGA_EMPRESA" id="02691E44-BFE7-75F4-D83F-95D915C79101">
+<createdBy>admin</createdBy>
+<createdTime>2025-11-22 18:02:59 UTC</createdTime>
+<ownerDesignName>Models</ownerDesignName>
+</ForeignKey>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="FK_VAGA_RECRUTADOR" id="4933EB49-938A-4B14-181E-8C2798C0ADDA">
+<createdBy>admin</createdBy>
+<createdTime>2025-11-22 18:02:59 UTC</createdTime>
+<ownerDesignName>Models</ownerDesignName>
+</ForeignKey>
+</foreignKeys>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="T_INC_VAGA_PK" id="D5E958A0-57D1-EC29-3491-8212CD59A9BB">
+<createdBy>admin</createdBy>
+<createdTime>2025-11-22 18:02:59 UTC</createdTime>
+<ownerDesignName>Models</ownerDesignName>
+<indexSort>SORTED</indexSort>
+</PrimaryKey>
+</primaryKeys>
+</TableProxyOraclev20c>

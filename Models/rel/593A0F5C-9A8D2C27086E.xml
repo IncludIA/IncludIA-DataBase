@@ -1,0 +1,15 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<relationalModel class="oracle.dbtools.crest.model.design.relational.RelationalDesign" name="Modelagem_Relacional" id="593A0F5C-7EAB-6D9E-AEC6-9A8D2C27086E" mainViewID="017CC0AE-2885-D4DA-DD2A-9D394DE46084">
+<createdBy>admin</createdBy>
+<createdTime>2025-11-22 18:02:50 UTC</createdTime>
+<ownerDesignName>Models</ownerDesignName>
+<shouldBeOpen>false</shouldBeOpen>
+<selectedRDBMSSite>01F6E6D1-21D0-CFBD-ABDD-3988D1813575</selectedRDBMSSite>
+<importDDLFileStamps>
+<importDDLFileStamp class="oracle.dbtools.crest.imports.DDLFileStamp">
+<fileName>Modelagem_Relacional.sql</fileName>
+<pathName>C:\Users\admin\Desktop\Fiap\IncludIA-DataBase</pathName>
+<dbType>17</dbType>
+</importDDLFileStamp>
+</importDDLFileStamps>
+</relationalModel>

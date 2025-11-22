@@ -1,0 +1,21 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="FK_RECRUTADOR_EMPRESA" directorySegmentName="seg_0" id="00E6D1EF-70B1-DFD2-A59F-A32D9B6D1ADE">
+<createdBy>admin</createdBy>
+<createdTime>2025-11-22 18:05:26 UTC</createdTime>
+<generatorID>E9CD47D4-E3C5-8098-621F-EADF47253978</generatorID>
+<ownerDesignName>Models</ownerDesignName>
+<engineerTo>
+<item key="E0F644F1-DF0D-6A90-82AA-F5D9A7682E65" value="true"/>
+<item key="593A0F5C-7EAB-6D9E-AEC6-9A8D2C27086E" value="true"/>
+</engineerTo>
+<sourcePk>40A84156-682B-B20C-0F41-320C9B5FF294</sourcePk>
+<identifying>false</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>D7F7E75D-36C8-2D7B-683C-1E3C9D6A04DC</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>079BB5EB-B47C-D5FF-0823-6563A1E1542A</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

@@ -1,0 +1,68 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="3817A43F-AA67-9120-5E2B-1FBBD3BC48E0" name="T INC CANDIDATO SKILL">
+<createdBy>admin</createdBy>
+<createdTime>2025-11-22 18:05:26 UTC</createdTime>
+<generatorID>9D23FB70-57DA-E81A-D420-C4E90D804B35</generatorID>
+<ownerDesignName>Models</ownerDesignName>
+<engineerTo>
+<item key="E0F644F1-DF0D-6A90-82AA-F5D9A7682E65" value="true"/>
+<item key="593A0F5C-7EAB-6D9E-AEC6-9A8D2C27086E" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="ID CANDIDATO" id="1ECB13FB-A7C1-4A82-BBCE-FDC603E6042D">
+<createdBy>admin</createdBy>
+<createdTime>2025-11-22 18:05:26 UTC</createdTime>
+<generatorID>9D2383B6-5F2D-830D-ECF2-F22C0E02FC06</generatorID>
+<ownerDesignName>Models</ownerDesignName>
+<engineerTo>
+<item key="E0F644F1-DF0D-6A90-82AA-F5D9A7682E65" value="true"/>
+<item key="593A0F5C-7EAB-6D9E-AEC6-9A8D2C27086E" value="true"/>
+</engineerTo>
+<referedAttribute>BE337F25-1304-4DD6-A8AF-E0139DB8A379</referedAttribute>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>9518A505-C574-0B0C-F09C-863ACF2F4432</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="ID SKILL" id="918B034A-26C2-8111-DC3A-EC04011F4C6C">
+<createdBy>admin</createdBy>
+<createdTime>2025-11-22 18:05:26 UTC</createdTime>
+<generatorID>437D69B0-E008-4828-2768-79BD357F022D</generatorID>
+<ownerDesignName>Models</ownerDesignName>
+<engineerTo>
+<item key="E0F644F1-DF0D-6A90-82AA-F5D9A7682E65" value="true"/>
+<item key="593A0F5C-7EAB-6D9E-AEC6-9A8D2C27086E" value="true"/>
+</engineerTo>
+<referedAttribute>A33502DD-16E8-AE6B-1061-256184BD1B43</referedAttribute>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>9518A505-C574-0B0C-F09C-863ACF2F4432</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="92C9544E-E979-3EDB-5BE4-9BC3D8BD15BF" name="T INC CANDIDATO SKILL PK">
+<createdBy>admin</createdBy>
+<createdTime>2025-11-22 18:05:26 UTC</createdTime>
+<generatorID>197B5019-2225-0BF8-BF9A-4112A7F36764</generatorID>
+<ownerDesignName>Models</ownerDesignName>
+<engineerTo>
+<item key="E0F644F1-DF0D-6A90-82AA-F5D9A7682E65" value="true"/>
+<item key="593A0F5C-7EAB-6D9E-AEC6-9A8D2C27086E" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>1ECB13FB-A7C1-4A82-BBCE-FDC603E6042D</attributeRef>
+<attributeRef>918B034A-26C2-8111-DC3A-EC04011F4C6C</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>
