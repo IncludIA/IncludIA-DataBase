@@ -1,51 +1,64 @@
 /**
  * ==========================================================
- * FASE 4: NOSQL - IMPORTAÇÃO E CONSULTAS MONGODB
- * Autor: Equipe Includ.IA
- * Descrição: Script para importar o JSON gerado pelo Oracle
+ * FASE 4: IMPORTAÇÃO PARA MONGODB (DOCUMENTOS COMPLEXOS)
+ * Autor: Luiz Eduardo Da Silva Pinto
  * ==========================================================
  */
 
-// 1. Selecionar o banco de dados
+// 1. Setup
 use('includia_db');
-
-// 2. Limpar coleção para testes limpos
 db.candidatos.drop();
 
-// 3. DADOS VINDOS DO ORACLE (Copiados do seu Log)
+// 2. SIMULAÇÃO DOS DADOS VINDOS DO ORACLE (Copiados do Output da Fase 3)
+// Note que agora temos o campo "experiencias" que não existia antes!
 var jsonJoao = {
-    "id": "4434c766afcb0149e063030012ac12bb",
+    "id": "uuid-do-joao-aqui",
     "nome": "João da Silva",
     "email": "joao@email.com",
-    "resumo": "Desenvolvedor Java apaixonado por acessibilidade e inclusão.",
-    "skills": ["Java Advanced", "Inteligência Emocional", "React Native"],
+    "resumo": "Desenvolvedor Java apaixonado por acessibilidade.",
+    "skills": [
+        "Java Advanced",
+        "React Native"
+    ],
+    "experiencias": [
+        { "cargo": "Dev Junior", "tipo": "TEMPO_INTEGRAL" },
+        { "cargo": "Estagiário", "tipo": "ESTAGIO" }
+    ],
     "origem": "Oracle Database",
-    "data_integracao": new Date()
+    "sincronizado_em": new Date()
 };
 
 var jsonMaria = {
-    "id": "4434c766afcc0149e063030012ac12bb",
+    "id": "uuid-da-maria-aqui",
     "nome": "Maria Souza",
-    "email": "maria.souza@tech.com",
-    "resumo": "Líder técnica com foco em gestão humanizada.",
-    "skills": ["Oracle PL/SQL", "Liderança Inclusiva"],
+    "email": "maria@email.com",
+    "resumo": "Líder técnica e especialista em dados.",
+    "skills": [
+        "Oracle PL/SQL",
+        "Liderança Inclusiva"
+    ],
+    "experiencias": [
+        { "cargo": "Tech Lead", "tipo": "TEMPO_INTEGRAL" }
+    ],
     "origem": "Oracle Database",
-    "data_integracao": new Date()
+    "sincronizado_em": new Date()
 };
 
-// 4. INSERIR NO MONGODB (Persistência)
+// 3. PERSISTÊNCIA
 db.candidatos.insertMany([jsonJoao, jsonMaria]);
+print("--- DADOS IMPORTADOS COM SUCESSO (ESTRUTURA COMPLEXA) ---");
 
-print("--- DADOS IMPORTADOS COM SUCESSO ---");
+// 4. CONSULTAS DE VALIDAÇÃO
 
-// 5. CONSULTAS PARA AVALIAÇÃO (Queries)
+// A) Quem tem Experiência como 'Tech Lead'?
+print("\n>>> Busca por Cargo (Nested Document):");
+var leads = db.candidatos.find(
+    { "experiencias.cargo": "Tech Lead" },
+    { _id: 0, nome: 1, "experiencias.cargo": 1 }
+).toArray();
+printjson(leads);
 
-// A) Buscar quem tem skill 'Java Advanced'
-print("\n>>> Candidatos com Java Advanced:");
-var devs = db.candidatos.find({ "skills": "Java Advanced" }, { _id: 0, nome: 1 }).toArray();
+// B) Quem tem skill 'Java Advanced'?
+print("\n>>> Busca por Skill:");
+var devs = db.candidatos.find({ "skills": "Java Advanced" }).toArray();
 printjson(devs);
-
-// B) Buscar por ID do Oracle
-print("\n>>> Buscar João pelo ID do Oracle:");
-var user = db.candidatos.findOne({ "id": "4434c766afcb0149e063030012ac12bb" });
-printjson(user);

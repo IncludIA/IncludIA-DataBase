@@ -1,194 +1,252 @@
 -- ==========================================================
--- FASE 2: PL/SQL AVANÇADO - LÓGICA E INTEGRAÇÃO
--- Autor: Luiz Eduardo Da Silva Pinto (Global Solution 2025)
+-- FASE 2: PL/SQL AVANÇADO - REGAS DE NEGÓCIO (VERSÃO 2.0)
+-- Autor: Luiz Eduardo Da Silva Pinto
+-- Descrição: Packages, Validações e Geração de JSON Complexo
 -- ==========================================================
 
--- 1. SEQUENCE PARA AUDITORIA (Garantia de ID único para os logs)
-CREATE SEQUENCE SEQ_LOG_AUDITORIA START WITH 1 INCREMENT BY 1;
 
--- 2. PACKAGE SPECIFICATION (O "Menu" do pacote)
-CREATE OR REPLACE PACKAGE PKG_INCLUDIA AS
-    -- Procedure para inserir candidato com segurança e validação
-    PROCEDURE PRC_INSERIR_CANDIDATO(
-        p_nome IN VARCHAR2,
-        p_cpf IN VARCHAR2,
-        p_email IN VARCHAR2,
-        p_senha IN VARCHAR2,
-        p_resumo IN CLOB
-    );
+-- 2. PACKAGE HEADER
+create or replace package pkg_includia as
+    -- Procedure de Cadastro Seguro
+   procedure prc_inserir_candidato (
+      p_nome   in varchar2,
+      p_cpf    in varchar2,
+      p_email  in varchar2,
+      p_senha  in varchar2,
+      p_resumo in clob
+   );
 
-    -- Procedure para registrar Match (Like/Dislike)
-    PROCEDURE PRC_REGISTRAR_MATCH(
-        p_id_candidato IN VARCHAR2,
-        p_id_vaga IN VARCHAR2,
-        p_is_candidato_like IN NUMBER
-    );
+    -- Procedure de Match
+   procedure prc_registrar_match (
+      p_id_candidato      in varchar2,
+      p_id_vaga           in varchar2,
+      p_is_candidato_like in number
+   );
 
-    -- Função 1: Validação de Email com REGEXP (Requisito da GS)
-    FUNCTION FUN_VALIDAR_EMAIL(p_email IN VARCHAR2) RETURN VARCHAR2;
+    -- Função de Validação (Regex)
+   function fun_validar_email (
+      p_email in varchar2
+   ) return varchar2;
 
-    -- Função 2: Gerar JSON Manualmente (Requisito "Hardcore" - Sem JSON_OBJECT)
-    FUNCTION FUN_GERAR_JSON_CANDIDATO(p_id_candidato IN VARCHAR2) RETURN CLOB;
-END PKG_INCLUDIA;
+    -- Função de Exportação JSON (AGORA MAIS COMPLEXA!)
+   function fun_gerar_json_candidato (
+      p_id_candidato in varchar2
+   ) return clob;
+end pkg_includia;
 /
 
--- 3. PACKAGE BODY (A implementação do código)
-CREATE OR REPLACE PACKAGE BODY PKG_INCLUDIA AS
+-- 3. PACKAGE BODY
+create or replace package body pkg_includia as
 
-    -- ==========================================================
-    -- FUNÇÃO 1: VALIDAÇÃO COM REGEXP
-    -- Verifica se o email tem formato válido (ex: texto@texto.com)
-    -- ==========================================================
-    FUNCTION FUN_VALIDAR_EMAIL(p_email IN VARCHAR2) RETURN VARCHAR2 IS
-    BEGIN
-        -- Expressão regular para validar formato de email
-        IF REGEXP_LIKE(p_email, '^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$') THEN
-            RETURN 'VALIDO';
-        ELSE
-            RETURN 'INVALIDO';
-        END IF;
-    EXCEPTION
-        WHEN OTHERS THEN
-            RETURN 'ERRO_VALIDACAO';
-    END FUN_VALIDAR_EMAIL;
+    -- Validação de Email
+   function fun_validar_email (
+      p_email in varchar2
+   ) return varchar2 is
+   begin
+      if regexp_like(
+         p_email,
+         '^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$'
+      ) then
+         return 'VALIDO';
+      else
+         return 'INVALIDO';
+      end if;
+   exception
+      when others then
+         return 'ERRO_VALIDACAO';
+   end fun_validar_email;
 
-    -- ==========================================================
-    -- FUNÇÃO 2: JSON MANUAL (CONCATENAÇÃO DE STRINGS)
-    -- Gera JSON na "unha" para cumprir o requisito de não usar funções nativas
-    -- ==========================================================
-    FUNCTION FUN_GERAR_JSON_CANDIDATO(p_id_candidato IN VARCHAR2) RETURN CLOB IS
-        v_json CLOB;
-        v_cand T_INC_CANDIDATO%ROWTYPE;
-        v_count NUMBER := 0;
-    BEGIN
-        -- Busca os dados do candidato
-        SELECT * INTO v_cand FROM T_INC_CANDIDATO WHERE ID_CANDIDATO = p_id_candidato;
+    -- Geração de JSON Manual (O "Hardcore" da GS)
+    -- Agora busca Skills, Experiências e Formações!
+   function fun_gerar_json_candidato (
+      p_id_candidato in varchar2
+   ) return clob is
+      v_json  clob;
+      v_cand  t_inc_candidato%rowtype;
+      v_count number;
+   begin
+        -- 1. Dados Pessoais
+      select *
+        into v_cand
+        from t_inc_candidato
+       where id_candidato = p_id_candidato;
 
-        -- Inicia a construção do JSON manualmente
-        v_json := '{';
-        v_json := v_json || '"id": "' || v_cand.ID_CANDIDATO || '",';
-        v_json := v_json || '"nome": "' || v_cand.NOME || '",';
-        v_json := v_json || '"email": "' || v_cand.EMAIL || '",';
-        v_json := v_json || '"resumo": "' || DBMS_LOB.SUBSTR(v_cand.RESUMO_PERFIL, 1000, 1) || '",';
+      v_json := '{';
+      v_json := v_json
+                || '"id": "'
+                || v_cand.id_candidato
+                || '",';
+      v_json := v_json
+                || '"nome": "'
+                || v_cand.nome
+                || '",';
+      v_json := v_json
+                || '"email": "'
+                || v_cand.email
+                || '",';
+      v_json := v_json
+                || '"resumo": "'
+                || dbms_lob.substr(
+         v_cand.resumo_perfil,
+         200,
+         1
+      )
+                || '",';
         
-        -- Abre array de skills
-        v_json := v_json || '"skills": [';
-        
-        -- Loop para adicionar as skills do candidato
-        FOR r IN (
-            SELECT S.NOME 
-            FROM T_INC_SKILL S 
-            JOIN T_INC_CANDIDATO_SKILL CS ON S.ID_SKILL = CS.ID_SKILL 
-            WHERE CS.ID_CANDIDATO = p_id_candidato
-        ) LOOP
-            IF v_count > 0 THEN 
-                v_json := v_json || ','; 
-            END IF;
-            v_json := v_json || '"' || r.NOME || '"';
-            v_count := v_count + 1;
-        END LOOP;
-        
-        -- Fecha array e objeto
-        v_json := v_json || ']';
-        v_json := v_json || '}';
-        
-        RETURN v_json;
+        -- 2. Array de SKILLS
+      v_json := v_json || '"skills": [';
+      v_count := 0;
+      for r in (
+         select s.nome
+           from t_inc_skill s
+           join t_inc_candidato_skill cs
+         on s.id_skill = cs.id_skill
+          where cs.id_candidato = p_id_candidato
+      ) loop
+         if v_count > 0 then
+            v_json := v_json || ',';
+         end if;
+         v_json := v_json
+                   || '"'
+                   || r.nome
+                   || '"';
+         v_count := v_count + 1;
+      end loop;
+      v_json := v_json || '],';
 
-    EXCEPTION
-        WHEN NO_DATA_FOUND THEN
-            RETURN '{"erro": "Candidato não encontrado"}';
-        WHEN OTHERS THEN
-            RETURN '{"erro": "Falha ao gerar JSON: ' || SQLERRM || '"}';
-    END FUN_GERAR_JSON_CANDIDATO;
+        -- 3. Array de EXPERIÊNCIAS (Novo!)
+      v_json := v_json || '"experiencias": [';
+      v_count := 0;
+      for r in (
+         select titulo_cargo,
+                tipo_emprego
+           from t_inc_experiencia
+          where id_candidato = p_id_candidato
+      ) loop
+         if v_count > 0 then
+            v_json := v_json || ',';
+         end if;
+         v_json := v_json
+                   || '{"cargo": "'
+                   || r.titulo_cargo
+                   || '", "tipo": "'
+                   || r.tipo_emprego
+                   || '"}';
+         v_count := v_count + 1;
+      end loop;
+      v_json := v_json || ']';
+      v_json := v_json || '}';
+      return v_json;
+   exception
+      when no_data_found then
+         return '{"erro": "Candidato não encontrado"}';
+      when others then
+         return '{"erro": "Falha na geração do JSON"}';
+   end fun_gerar_json_candidato;
 
-    -- ==========================================================
-    -- PROCEDURE: INSERIR CANDIDATO
-    -- ==========================================================
-    PROCEDURE PRC_INSERIR_CANDIDATO(
-        p_nome IN VARCHAR2,
-        p_cpf IN VARCHAR2,
-        p_email IN VARCHAR2,
-        p_senha IN VARCHAR2,
-        p_resumo IN CLOB
-    ) IS
-        v_uuid VARCHAR2(36);
-    BEGIN
-        -- 1. Valida o Email usando a função interna
-        IF FUN_VALIDAR_EMAIL(p_email) = 'INVALIDO' THEN
-            RAISE_APPLICATION_ERROR(-20001, 'Erro: Formato de e-mail inválido.');
-        END IF;
+    -- Inserir Candidato
+   procedure prc_inserir_candidato (
+      p_nome   in varchar2,
+      p_cpf    in varchar2,
+      p_email  in varchar2,
+      p_senha  in varchar2,
+      p_resumo in clob
+   ) is
+      v_uuid varchar2(36);
+   begin
+      if fun_validar_email(p_email) = 'INVALIDO' then
+         raise_application_error(
+            -20001,
+            'Email inválido.'
+         );
+      end if;
+      v_uuid := lower(rawtohex(sys_guid()));
+      insert into t_inc_candidato (
+         id_candidato,
+         nome,
+         cpf,
+         email,
+         senha_hash,
+         resumo_perfil
+      ) values ( v_uuid,
+                 p_nome,
+                 p_cpf,
+                 p_email,
+                 p_senha,
+                 p_resumo );
+      commit;
+   exception
+      when dup_val_on_index then
+         raise_application_error(
+            -20002,
+            'CPF/Email já existe.'
+         );
+   end prc_inserir_candidato;
 
-        -- 2. Gera um UUID (simulado com SYS_GUID)
-        v_uuid := LOWER(RAWTOHEX(SYS_GUID())); 
-        
-        -- 3. Insere na tabela
-        INSERT INTO T_INC_CANDIDATO (ID_CANDIDATO, NOME, CPF, EMAIL, SENHA_HASH, RESUMO_PERFIL)
-        VALUES (v_uuid, p_nome, p_cpf, p_email, p_senha, p_resumo);
-        
-        COMMIT;
-        DBMS_OUTPUT.PUT_LINE('Candidato inserido com sucesso! ID: ' || v_uuid);
-    EXCEPTION
-        WHEN DUP_VAL_ON_INDEX THEN
-            RAISE_APPLICATION_ERROR(-20002, 'Erro: CPF ou Email já cadastrado.');
-        WHEN OTHERS THEN
-            ROLLBACK;
-            RAISE_APPLICATION_ERROR(-20003, 'Erro ao inserir candidato: ' || SQLERRM);
-    END PRC_INSERIR_CANDIDATO;
+    -- Registrar Match
+   procedure prc_registrar_match (
+      p_id_candidato      in varchar2,
+      p_id_vaga           in varchar2,
+      p_is_candidato_like in number
+   ) is
+      v_uuid varchar2(36);
+   begin
+      update t_inc_match
+         set liked_by_candidate = p_is_candidato_like,
+             status =
+                case
+                   when liked_by_recruiter = 1
+                      and p_is_candidato_like = 1 then
+                      'MATCHED'
+                   else
+                      'PENDENTE'
+                end
+       where id_candidato = p_id_candidato
+         and id_vaga = p_id_vaga;
 
-    -- ==========================================================
-    -- PROCEDURE: REGISTRAR MATCH
-    -- ==========================================================
-    PROCEDURE PRC_REGISTRAR_MATCH(
-        p_id_candidato IN VARCHAR2,
-        p_id_vaga IN VARCHAR2,
-        p_is_candidato_like IN NUMBER
-    ) IS
-        v_uuid VARCHAR2(36);
-        v_liked_recruiter NUMBER;
-    BEGIN
-        -- Tenta atualizar se já existir um registo (ex: recrutador já deu like antes)
-        UPDATE T_INC_MATCH 
-        SET LIKED_BY_CANDIDATE = p_is_candidato_like,
-            STATUS = CASE 
-                        WHEN LIKED_BY_RECRUITER = 1 AND p_is_candidato_like = 1 THEN 'MATCHED' 
-                        WHEN p_is_candidato_like = 0 THEN 'REJEITADO_CANDIDATO'
-                        ELSE 'PENDENTE' 
-                     END
-        WHERE ID_CANDIDATO = p_id_candidato AND ID_VAGA = p_id_vaga;
+      if sql%rowcount = 0 then
+         v_uuid := lower(rawtohex(sys_guid()));
+         insert into t_inc_match (
+            id_match,
+            id_candidato,
+            id_vaga,
+            liked_by_candidate,
+            status
+         ) values ( v_uuid,
+                    p_id_candidato,
+                    p_id_vaga,
+                    p_is_candidato_like,
+                    'PENDENTE' );
+      end if;
+      commit;
+   end prc_registrar_match;
 
-        -- Se não atualizou nenhuma linha, cria um novo registo
-        IF SQL%ROWCOUNT = 0 THEN
-            v_uuid := LOWER(RAWTOHEX(SYS_GUID()));
-            INSERT INTO T_INC_MATCH (ID_MATCH, ID_CANDIDATO, ID_VAGA, LIKED_BY_CANDIDATE, STATUS)
-            VALUES (v_uuid, p_id_candidato, p_id_vaga, p_is_candidato_like, 'PENDENTE');
-        END IF;
-        
-        COMMIT;
-    END PRC_REGISTRAR_MATCH;
-
-END PKG_INCLUDIA;
+end pkg_includia;
 /
 
--- 4. TRIGGER DE AUDITORIA (Monitora alterações na tabela de Candidatos)
-CREATE OR REPLACE TRIGGER TRG_AUDIT_CANDIDATO
-AFTER INSERT OR UPDATE OR DELETE ON T_INC_CANDIDATO
-FOR EACH ROW
-DECLARE
-    v_operacao VARCHAR2(20);
-    v_dados CLOB;
-BEGIN
-    IF INSERTING THEN 
-        v_operacao := 'INSERT';
-        v_dados := 'Novo Candidato: ' || :NEW.NOME;
-    ELSIF UPDATING THEN 
-        v_operacao := 'UPDATE';
-        v_dados := 'Alterado de: ' || :OLD.NOME || ' para ' || :NEW.NOME;
-    ELSIF DELETING THEN 
-        v_operacao := 'DELETE';
-        v_dados := 'Removido: ' || :OLD.NOME;
-    END IF;
+-- 4. TRIGGER DE AUDITORIA
+create or replace trigger trg_audit_candidato after
+   insert or update or delete on t_inc_candidato
+   for each row
+declare
+   v_op varchar2(20);
+begin
+   if inserting then
+      v_op := 'INSERT';
+   elsif updating then
+      v_op := 'UPDATE';
+   elsif deleting then
+      v_op := 'DELETE';
+   end if;
 
-    INSERT INTO T_INC_LOG_AUDITORIA (ID_LOG, NOME_TABELA, OPERACAO, USUARIO_DB, DADOS_ANTIGOS)
-    VALUES (SEQ_LOG_AUDITORIA.NEXTVAL, 'T_INC_CANDIDATO', v_operacao, USER, v_dados);
-END;
+   insert into t_inc_log_auditoria (
+      nome_tabela,
+      operacao,
+      usuario_db,
+      dados_antigos
+   ) values ( 'T_INC_CANDIDATO',
+              v_op,
+              user,
+              'Nome: ' || :old.nome );
+end;
 /
