@@ -32,21 +32,6 @@ O módulo **Database** do **Includ.IA** é a espinha dorsal da nossa plataforma 
 
 ---
 
-## 📐 Arquitetura e Modelagem
-
-
-### 1. Modelo Lógico (Abstração)
-Representação das entidades de negócio e seus relacionamentos (Notação Pé de Galinha / IE).
-
-![Modelo Lógico](image/modelo_logico.png)
-
-### 2. Modelo Físico (Implementação)
-Estrutura detalhada com tipos de dados Oracle, chaves estrangeiras e constraints.
-
-![Modelo Físico](image/modelo_fisico.png)
-
----
-
 ## ⚡ Funcionalidades do Banco (PL/SQL)
 
 Todas as regras de negócio estão centralizadas no pacote `PKG_INCLUDIA`.

@@ -1,10 +1,10 @@
 Oracle SQL Developer Data Modeler 24.3.1.351.0831
 Oracle SQL Developer Data Modeler Log de Importação
-Data e Hora: 2025-11-22 15:02:50 BRT
-Nome do Design: Modelagem_Relacional
+Data e Hora: 2025-11-23 12:43:14 BRT
+Nome do Design: 01_DDL_Criacao_Tabelas
 RDBMS : Oracle Database 21c
 
-		Todas as Instruções: 		9
-		Instruções Importadas: 	9
+		Todas as Instruções: 		19
+		Instruções Importadas: 	19
 		Instruções com Falha: 		0
 		Nenhuma Instrução Reconhecida: 	0
